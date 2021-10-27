@@ -41,6 +41,8 @@
                 <configuration>
                     <goals>install</goals>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
+
+                    <pushChanges>false</pushChanges>
                 </configuration>
             </plugin>
         </plugins>
