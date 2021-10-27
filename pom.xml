@@ -50,7 +50,6 @@
         <developerConnection>
             scm:git:https://github.com/dm4nk/pet-clinic.git
         </developerConnection>
-      <tag>0.0.1</tag>
   </scm>
 
 </project>
