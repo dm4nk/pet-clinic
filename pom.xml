@@ -48,6 +48,7 @@
 
     <scm>
         <developerConnection>
+            <!--Just some problems with ssh which i cant solve....-->
             scm:git:git@github.com:dm4nk/pet-clinic.git
         </developerConnection>
     <tag>HEAD</tag>
