@@ -1,9 +1,11 @@
 package com.kn4md.petclinic.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-public class PetType {
+@Getter
+@Setter
+public class PetType extends BaseEntity {
 
     private String name;
 }

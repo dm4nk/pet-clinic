@@ -1,11 +1,11 @@
 package com.kn4md.petclinic.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@AllArgsConstructor
-public class Person {
+@Getter
+@Setter
+public class Person extends BaseEntity {
     private String firstName;
     private String lastName;
 }
