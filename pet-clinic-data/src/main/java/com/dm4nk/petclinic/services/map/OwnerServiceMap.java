@@ -1,11 +1,11 @@
-package com.kn4md.petclinic.services.map;
+package com.dm4nk.petclinic.services.map;
 
-import com.kn4md.petclinic.model.Owner;
-import com.kn4md.petclinic.services.CrudService;
+import com.dm4nk.petclinic.model.Owner;
+import com.dm4nk.petclinic.services.OwnerService;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends MapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends MapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -30,5 +30,11 @@ public class OwnerServiceMap extends MapService<Owner, Long> implements CrudServ
     @Override
     public void deleteByID(Long id) {
         super.deleteById(id);
+    }
+
+    //todo: implement that
+    @Override
+    public Owner findByLastName() {
+        return null;
     }
 }

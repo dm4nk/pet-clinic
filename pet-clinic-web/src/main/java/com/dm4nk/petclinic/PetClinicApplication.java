@@ -1,4 +1,4 @@
-package com.kn4md.petclinic;
+package com.dm4nk.petclinic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

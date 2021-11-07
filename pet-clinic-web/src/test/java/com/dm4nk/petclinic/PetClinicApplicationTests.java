@@ -1,4 +1,4 @@
-package com.kn4md.petclinic;
+package com.dm4nk.petclinic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

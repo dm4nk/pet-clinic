@@ -1,11 +1,11 @@
-package com.kn4md.petclinic.services.map;
+package com.dm4nk.petclinic.services.map;
 
-import com.kn4md.petclinic.model.Pet;
-import com.kn4md.petclinic.services.CrudService;
+import com.dm4nk.petclinic.model.Pet;
+import com.dm4nk.petclinic.services.PetService;
 
 import java.util.Set;
 
-public class PetServiceMap extends MapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends MapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();

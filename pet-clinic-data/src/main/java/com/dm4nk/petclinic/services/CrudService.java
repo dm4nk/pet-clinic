@@ -1,4 +1,4 @@
-package com.kn4md.petclinic.services;
+package com.dm4nk.petclinic.services;
 
 import java.util.Set;
 

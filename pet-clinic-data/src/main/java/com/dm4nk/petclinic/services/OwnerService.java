@@ -1,6 +1,6 @@
-package com.kn4md.petclinic.services;
+package com.dm4nk.petclinic.services;
 
-import com.kn4md.petclinic.model.Owner;
+import com.dm4nk.petclinic.model.Owner;
 
 public interface OwnerService extends CrudService<Owner, Long> {
     Owner findByLastName();

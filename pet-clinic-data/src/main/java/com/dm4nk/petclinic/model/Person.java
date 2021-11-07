@@ -1,4 +1,4 @@
-package com.kn4md.petclinic.model;
+package com.dm4nk.petclinic.model;
 
 import lombok.Getter;
 import lombok.Setter;
