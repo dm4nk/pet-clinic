@@ -2,9 +2,11 @@ package com.dm4nk.petclinic.services.map;
 
 import com.dm4nk.petclinic.model.Pet;
 import com.dm4nk.petclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetServiceMap extends MapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
