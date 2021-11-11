@@ -18,7 +18,6 @@ public abstract class MapService<T extends BaseEntity, ID extends Long> {
     }
 
     T save(@NonNull T object) {
-
         if (object.getId() == null)
             object.setId(getNextId());
 
