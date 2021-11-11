@@ -12,7 +12,7 @@
         <version>2.5.6</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.kn4md</groupId>
+    <groupId>com.dm4nk</groupId>
     <artifactId>pet-clinic</artifactId>
     <version>0.0.2-SNAPSHOT</version>
     <name>pet-clinic</name>
