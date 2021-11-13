@@ -1,13 +1,13 @@
 package com.dm4nk.petclinic.services.map;
 
 import com.dm4nk.petclinic.model.Speciality;
-import com.dm4nk.petclinic.services.SpecialitiesService;
+import com.dm4nk.petclinic.services.SpecialityService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class SpecialitiesMapService extends MapService<Speciality, Long> implements SpecialitiesService {
+public class SpecialitiesMapService extends MapService<Speciality, Long> implements SpecialityService {
     @Override
     public Set<Speciality> findAll() {
         return super.findAll();
@@ -25,6 +25,8 @@ public class SpecialitiesMapService extends MapService<Speciality, Long> impleme
 
     @Override
     public Speciality save(Speciality object) {
+
+
         return super.save(object);
     }
 
