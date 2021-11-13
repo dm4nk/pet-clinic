@@ -9,14 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/vets")
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class VetController {
 
     VetService vetService;
 
-    @RequestMapping({"", "/", "/index", "/index.html"})
+    @RequestMapping({"/vets", "/vets/", "/vets/index", "/vets/index.html", "/vets.html"})
     public String listVets(Model model) {
 
         model.addAttribute("vets", vetService.findAll());
