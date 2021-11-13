@@ -1,11 +1,14 @@
 package com.dm4nk.petclinic.model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 @Getter
 @Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Person extends BaseEntity {
-    private String firstName;
-    private String lastName;
+    String firstName;
+    String lastName;
 }
