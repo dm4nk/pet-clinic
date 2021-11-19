@@ -1,10 +1,7 @@
 package com.dm4nk.petclinic.bootstrap;
 
 import com.dm4nk.petclinic.model.*;
-import com.dm4nk.petclinic.services.OwnerService;
-import com.dm4nk.petclinic.services.PetTypeService;
-import com.dm4nk.petclinic.services.SpecialityService;
-import com.dm4nk.petclinic.services.VetService;
+import com.dm4nk.petclinic.services.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -22,6 +19,7 @@ public class DataLoader implements CommandLineRunner {
     VetService vetService;
     PetTypeService petTypeService;
     SpecialityService specialityService;
+    VisitService visitService;
 
     @Override
     public void run(String... args) {
@@ -78,6 +76,12 @@ public class DataLoader implements CommandLineRunner {
         fionasCat.setName("Cat");
         owner2.getPets().add(fionasCat);
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(fionasCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy Kitty");
+        visitService.save(catVisit);
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Sam");
