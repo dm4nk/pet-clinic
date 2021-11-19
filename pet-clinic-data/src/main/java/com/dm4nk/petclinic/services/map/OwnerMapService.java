@@ -16,7 +16,7 @@ import java.util.Set;
 @Service
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class OwnerServiceMap extends MapService<Owner, Long> implements OwnerService {
+public class OwnerMapService extends MapService<Owner, Long> implements OwnerService {
 
     OwnerRepository ownerRepository;
     PetTypeService petTypeService;

@@ -14,7 +14,7 @@ import java.util.Set;
 @Service
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class VetServiceMap extends MapService<Vet, Long> implements VetService {
+public class VetMapService extends MapService<Vet, Long> implements VetService {
 
     SpecialityService specialityService;
 
