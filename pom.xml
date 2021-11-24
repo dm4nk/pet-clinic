@@ -18,7 +18,7 @@
     <name>pet-clinic</name>
     <description>pet-clinic</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>14</java.version>
     </properties>
 
     <build>
