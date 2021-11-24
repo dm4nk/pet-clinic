@@ -13,9 +13,9 @@ import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Pet extends BaseEntity {
     @Column(name = "name")

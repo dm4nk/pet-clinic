@@ -1,6 +1,9 @@
 package com.dm4nk.petclinic.model;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.GeneratedValue;
@@ -14,7 +17,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BaseEntity implements Serializable {
 

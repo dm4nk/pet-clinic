@@ -16,15 +16,6 @@ import java.util.Set;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Owner extends Person {
 
-    @Builder
-    public Owner(Long id, String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
-        super(id, firstName, lastName);
-        this.address = address;
-        this.city = city;
-        this.telephone = telephone;
-        this.pets = pets;
-    }
-
     @Column(name = "address")
     String address;
 
@@ -36,4 +27,19 @@ public class Owner extends Person {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     Set<Pet> pets = new HashSet<>();
+
+    @Builder
+    public Owner(String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
+        super(firstName, lastName);
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
+        this.pets = pets;
+    }
+
+    public static class OwnerBuilder extends PersonBuilder {
+        OwnerBuilder() {
+            super();
+        }
+    }
 }

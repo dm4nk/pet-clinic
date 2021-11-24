@@ -11,9 +11,9 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Visit extends BaseEntity {
     @Column(name = "date")

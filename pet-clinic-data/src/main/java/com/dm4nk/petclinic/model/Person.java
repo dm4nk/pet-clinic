@@ -10,16 +10,11 @@ import javax.persistence.MappedSuperclass;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Person extends BaseEntity {
-
-    @Builder
-    public Person(Long id, String firstName, String lastName) {
-        super(id);
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 
     @Column(name = "first_name")
     String firstName;

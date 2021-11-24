@@ -12,9 +12,9 @@ import javax.persistence.Table;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class PetType extends BaseEntity {
     @Column(name = "name")
