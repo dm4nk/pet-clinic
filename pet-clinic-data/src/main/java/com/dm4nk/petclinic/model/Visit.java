@@ -11,8 +11,6 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Visit extends BaseEntity {
@@ -25,4 +23,12 @@ public class Visit extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "pet_id")
     Pet pet;
+
+    @Builder
+    public Visit(Long id, LocalDate date, String description, Pet pet) {
+        super(id);
+        this.date = date;
+        this.description = description;
+        this.pet = pet;
+    }
 }

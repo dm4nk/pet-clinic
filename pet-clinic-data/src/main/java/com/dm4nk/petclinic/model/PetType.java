@@ -12,11 +12,15 @@ import javax.persistence.Table;
 
 @Getter
 @Setter
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class PetType extends BaseEntity {
     @Column(name = "name")
     String name;
+
+    @Builder
+    public PetType(Long id, String name) {
+        super(id);
+        this.name = name;
+    }
 }

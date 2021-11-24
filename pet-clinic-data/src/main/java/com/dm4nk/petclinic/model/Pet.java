@@ -13,8 +13,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Pet extends BaseEntity {
@@ -34,4 +32,14 @@ public class Pet extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     Set<Visit> visits = new HashSet<>();
+
+    @Builder
+    public Pet(Long id, String name, PetType petType, Owner owner, LocalDate birthday, Set<Visit> visits) {
+        super(id);
+        this.name = name;
+        this.petType = petType;
+        this.owner = owner;
+        this.birthday = birthday;
+        this.visits = visits;
+    }
 }

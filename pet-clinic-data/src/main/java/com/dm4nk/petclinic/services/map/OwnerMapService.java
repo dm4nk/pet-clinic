@@ -2,7 +2,6 @@ package com.dm4nk.petclinic.services.map;
 
 import com.dm4nk.petclinic.model.Owner;
 import com.dm4nk.petclinic.model.Pet;
-import com.dm4nk.petclinic.repositories.OwnerRepository;
 import com.dm4nk.petclinic.services.OwnerService;
 import com.dm4nk.petclinic.services.PetService;
 import com.dm4nk.petclinic.services.PetTypeService;
@@ -21,7 +20,6 @@ import java.util.Set;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class OwnerMapService extends MapService<Owner, Long> implements OwnerService {
 
-    OwnerRepository ownerRepository;
     PetTypeService petTypeService;
     PetService petService;
 
@@ -64,9 +62,12 @@ public class OwnerMapService extends MapService<Owner, Long> implements OwnerSer
         super.deleteById(id);
     }
 
-    //todo: implement that
     @Override
     public Owner findByLastName(String lastName) {
-        return ownerRepository.findByLastName(lastName);
+        return super.findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElse(null);
     }
 }
