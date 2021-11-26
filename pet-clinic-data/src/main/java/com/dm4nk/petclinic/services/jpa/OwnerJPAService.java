@@ -2,8 +2,6 @@ package com.dm4nk.petclinic.services.jpa;
 
 import com.dm4nk.petclinic.model.Owner;
 import com.dm4nk.petclinic.repositories.OwnerRepository;
-import com.dm4nk.petclinic.repositories.PetRepository;
-import com.dm4nk.petclinic.repositories.PetTypeRepository;
 import com.dm4nk.petclinic.services.OwnerService;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -22,8 +20,6 @@ import java.util.Set;
 public class OwnerJPAService implements OwnerService {
 
     OwnerRepository ownerRepository;
-    PetRepository petRepository;
-    PetTypeRepository petTypeRepository;
 
     @Override
     public Set<Owner> findAll() {
