@@ -14,6 +14,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import java.beans.PropertyEditorSupport;
+import java.time.LocalDate;
 import java.util.Collection;
 
 @Controller
@@ -32,6 +34,18 @@ public class PetController {
         this.ownerService = ownerService;
     }
 
+    @InitBinder
+    public void dataBinder(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
+
+        dataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
+            @Override
+            public void setAsText(String text) throws IllegalArgumentException {
+                setValue(LocalDate.parse(text));
+            }
+        });
+    }
+
     @ModelAttribute("types")
     public Collection<PetType> populatePetTypes() {
         return petTypeService.findAll();
@@ -40,11 +54,6 @@ public class PetController {
     @ModelAttribute("owner")
     public Owner findOwner(@PathVariable("ownerId") Long ownerId) {
         return ownerService.findByID(ownerId);
-    }
-
-    @InitBinder("owner")
-    public void initOwnerBinder(WebDataBinder dataBinder) {
-        dataBinder.setDisallowedFields("id");
     }
 
     @GetMapping("/pets/new")
@@ -62,12 +71,14 @@ public class PetController {
         if (StringUtils.hasLength(pet.getName()) && pet.isNew() && owner.getPet(pet.getName(), true) != null) {
             bindingResult.rejectValue("name", "duplicate", "already exists");
         }
-        owner.getPets().add(pet);
         if (bindingResult.hasErrors()) {
             model.addAttribute("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
-            petService.save(pet);
+            Pet savedPet = petService.save(pet);
+            savedPet.setOwner(owner);
+            owner.getPets().add(savedPet);
+            ownerService.save(owner);
             return "redirect:/owners/" + owner.getId();
         }
     }
@@ -79,15 +90,23 @@ public class PetController {
     }
 
     @PostMapping("/pets/{petId}/edit")
-    public String processUpdateForm(@Validated Pet pet, BindingResult result, Owner owner, Model model) {
+    public String processUpdateForm(@Validated Pet pet, BindingResult result, Owner owner, Model model, @PathVariable Long petId) {
         if (result.hasErrors()) {
             pet.setOwner(owner);
             model.addAttribute("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
-            owner.getPets().add(pet);
-            petService.save(pet);
-            return "redirect:/owners/" + owner.getId();
+            Pet ownersPet = owner.getPets().stream()
+                    .filter(pet1 -> pet1.getId() == petId)
+                    .findFirst()
+                    .orElse(null);
+            if (ownersPet != null) {
+                ownersPet.setName(pet.getName());
+                ownersPet.setBirthDate(pet.getBirthDate());
+                ownerService.save(owner);
+                return "redirect:/owners/" + owner.getId();
+            } else
+                return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         }
     }
 }
