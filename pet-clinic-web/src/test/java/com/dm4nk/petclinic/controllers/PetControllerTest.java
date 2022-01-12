@@ -113,5 +113,6 @@ class PetControllerTest {
                 .andExpect(view().name("redirect:/owners/1"));
 
         verify(ownerService).save(any());
+        verify(petService).save(any());
     }
 }

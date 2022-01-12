@@ -103,6 +103,7 @@ public class PetController {
             if (ownersPet != null) {
                 ownersPet.setName(pet.getName());
                 ownersPet.setBirthDate(pet.getBirthDate());
+                petService.save(ownersPet);
                 ownerService.save(owner);
                 return "redirect:/owners/" + owner.getId();
             } else
