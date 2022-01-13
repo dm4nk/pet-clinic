@@ -1,6 +1,5 @@
 package com.dm4nk.petclinic.services.jpa;
 
-import com.dm4nk.petclinic.model.Owner;
 import com.dm4nk.petclinic.model.Pet;
 import com.dm4nk.petclinic.repositories.PetRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,7 +27,6 @@ class PetJPAServiceTest {
     @InjectMocks
     PetJPAService petJPAService;
 
-    Owner owner;
     Pet pet;
 
     @BeforeEach
