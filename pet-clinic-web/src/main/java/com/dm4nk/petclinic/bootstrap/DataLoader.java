@@ -67,7 +67,7 @@ public class DataLoader implements CommandLineRunner {
         mikesDog2.setPetType(savedDogPetType);
         mikesDog2.setOwner(owner1);
         mikesDog2.setBirthDate(LocalDate.now());
-        mikesDog2.setName("Rosco2");
+        mikesDog2.setName("Posco");
         owner1.getPets().add(mikesDog2);
 
         ownerService.save(owner1);

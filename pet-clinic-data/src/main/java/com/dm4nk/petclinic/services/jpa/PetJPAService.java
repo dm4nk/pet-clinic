@@ -23,9 +23,7 @@ public class PetJPAService implements PetService {
 
     @Override
     public Set<Pet> findAll() {
-        Set<Pet> petSet = new HashSet<>();
-        petRepository.findAll().forEach(petSet::add);
-        return petSet;
+        return new HashSet<>(petRepository.findAll());
     }
 
     @Override

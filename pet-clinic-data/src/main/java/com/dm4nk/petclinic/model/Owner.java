@@ -39,12 +39,6 @@ public class Owner extends Person {
         }
     }
 
-    public static class OwnerBuilder extends PersonBuilder {
-        OwnerBuilder() {
-            super();
-        }
-    }
-
     public Pet getPet(String name) {
         return getPet(name, false);
     }
@@ -58,5 +52,11 @@ public class Owner extends Person {
             }
         }
         return null;
+    }
+
+    public static class OwnerBuilder extends PersonBuilder {
+        OwnerBuilder() {
+            super();
+        }
     }
 }

@@ -23,9 +23,7 @@ public class VisitJPAService implements VisitService {
 
     @Override
     public Set<Visit> findAll() {
-        Set<Visit> visitSet = new HashSet<>();
-        visitRepository.findAll().forEach(visitSet::add);
-        return visitSet;
+        return new HashSet<>(visitRepository.findAll());
     }
 
     @Override
@@ -40,7 +38,7 @@ public class VisitJPAService implements VisitService {
 
     @Override
     public void delete(Visit object) {
-        visitRepository.save(object);
+        visitRepository.delete(object);
     }
 
     @Override
