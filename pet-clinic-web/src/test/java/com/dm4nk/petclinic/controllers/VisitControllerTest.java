@@ -19,6 +19,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -81,5 +82,17 @@ class VisitControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/owners/1"))
                 .andExpect(model().attributeExists("visit"));
+    }
+
+    @Test
+    void processNewVisitFormValidationFailedTest() throws Exception {
+        mockMvc.perform(post("/owners/1/pets/2/visits/new")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("pet"))
+                .andExpect(model().attributeExists("visit"))
+                .andExpect(view().name("pets/createOrUpdateVisitForm"));
+
+        verifyNoInteractions(visitService);
     }
 }

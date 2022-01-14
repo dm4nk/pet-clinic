@@ -7,10 +7,10 @@ import com.dm4nk.petclinic.services.VisitService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.beans.PropertyEditorSupport;
 import java.time.LocalDate;
 
@@ -57,7 +57,7 @@ public class VisitController {
     }
 
     @PostMapping("/owners/{ownerId}/pets/{petId}/visits/new")
-    public String processNewVisitForm(@Validated Visit visit, BindingResult bindingResult) {
+    public String processNewVisitForm(@Valid Visit visit, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "pets/createOrUpdateVisitForm";
         } else {

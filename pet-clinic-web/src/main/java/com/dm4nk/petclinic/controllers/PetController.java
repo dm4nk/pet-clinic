@@ -6,14 +6,14 @@ import com.dm4nk.petclinic.model.PetType;
 import com.dm4nk.petclinic.services.OwnerService;
 import com.dm4nk.petclinic.services.PetService;
 import com.dm4nk.petclinic.services.PetTypeService;
+import com.dm4nk.petclinic.validators.PetValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.beans.PropertyEditorSupport;
 import java.time.LocalDate;
 import java.util.Collection;
@@ -46,6 +46,11 @@ public class PetController {
         });
     }
 
+    @InitBinder("pet")
+    public void initPetBinder(WebDataBinder dataBinder) {
+        dataBinder.setValidator(new PetValidator());
+    }
+
     @ModelAttribute("types")
     public Collection<PetType> populatePetTypes() {
         return petTypeService.findAll();
@@ -67,10 +72,7 @@ public class PetController {
     }
 
     @PostMapping("/pets/new")
-    public String processCreationForm(@Validated Pet pet, Owner owner, BindingResult bindingResult, Model model) {
-        if (StringUtils.hasLength(pet.getName()) && pet.isNew() && owner.getPet(pet.getName(), true) != null) {
-            bindingResult.rejectValue("name", "duplicate", "already exists");
-        }
+    public String processCreationForm(Owner owner, @Valid Pet pet, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
@@ -90,7 +92,7 @@ public class PetController {
     }
 
     @PostMapping("/pets/{petId}/edit")
-    public String processUpdateForm(@Validated Pet pet, BindingResult result, Owner owner, Model model, @PathVariable Long petId) {
+    public String processUpdateForm(Owner owner, @Valid Pet pet, BindingResult result, Model model, @PathVariable Long petId) {
         if (result.hasErrors()) {
             pet.setOwner(owner);
             model.addAttribute("pet", pet);

@@ -1,22 +1,20 @@
-package com.dm4nk.petclinic.fromatters;
+package com.dm4nk.petclinic.formatters;
 
 import com.dm4nk.petclinic.model.PetType;
 import com.dm4nk.petclinic.services.PetTypeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.format.Formatter;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
-import java.util.Collection;
 import java.util.Locale;
+import java.util.Set;
 
+@RequiredArgsConstructor
 @Component
-public class PetTypeFormatter implements Formatter<PetType> {
+public class PetFormatter implements Formatter<PetType> {
 
     private final PetTypeService petTypeService;
-
-    public PetTypeFormatter(PetTypeService petTypeService) {
-        this.petTypeService = petTypeService;
-    }
 
     @Override
     public String print(PetType petType, Locale locale) {
@@ -25,7 +23,7 @@ public class PetTypeFormatter implements Formatter<PetType> {
 
     @Override
     public PetType parse(String text, Locale locale) throws ParseException {
-        Collection<PetType> findPetTypes = petTypeService.findAll();
+        Set<PetType> findPetTypes = petTypeService.findAll();
         for (PetType type : findPetTypes) {
             if (type.getName().equals(text)) {
                 return type;

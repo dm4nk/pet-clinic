@@ -2,8 +2,10 @@ package com.dm4nk.petclinic.model;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 @Entity
@@ -15,9 +17,11 @@ import java.time.LocalDate;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Visit extends BaseEntity {
     @Column(name = "date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate date;
 
     @Column(name = "description")
+    @NotEmpty
     String description;
 
     @ManyToOne
