@@ -11,8 +11,11 @@ This application was built using
 with [Thymeleaf](https://www.thymeleaf.org/)
 for rendering the UI.
 
-It represents Pet clinic, providing users with CRUD operations with Owners, their Pets and Visits to certain
-Veterinarian.
+It represents Pet clinic, providing users with CRUD operations with 
+[Owners](https://github.com/dm4nk/pet-clinic/blob/master/pet-clinic-data/src/main/java/com/dm4nk/petclinic/model/Owner.java), their 
+[Pets](https://github.com/dm4nk/pet-clinic/blob/master/pet-clinic-data/src/main/java/com/dm4nk/petclinic/model/Pet.java) and 
+[Visits](https://github.com/dm4nk/pet-clinic/blob/master/pet-clinic-data/src/main/java/com/dm4nk/petclinic/model/Visit.java) to certain
+[Veterinarian](https://github.com/dm4nk/pet-clinic/blob/master/pet-clinic-data/src/main/java/com/dm4nk/petclinic/model/Vet.java)
 
 It is copy of [spring-petclinic](https://github.com/spring-projects/spring-petclinic)
 rewritten for educational issues, helping with understanding basic principles and syntax of Spring, JPA, MVC pattern,
