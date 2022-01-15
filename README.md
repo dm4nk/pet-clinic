@@ -18,7 +18,7 @@ It represents Pet clinic, providing users with CRUD operations with
 [Veterinarian](https://github.com/dm4nk/pet-clinic/blob/master/pet-clinic-data/src/main/java/com/dm4nk/petclinic/model/Vet.java)
 
 It is copy of [spring-petclinic](https://github.com/spring-projects/spring-petclinic)
-rewritten for educational issues, helping with understanding basic principles and syntax of Spring, JPA, MVC pattern,
+rewritten for educational purpose, helping with understanding basic principles and syntax of Spring, JPA, MVC pattern,
 Maven plugins, Caching, Validation, Tests, HTML and CSS
 
 ## Running Application Process on your computer
