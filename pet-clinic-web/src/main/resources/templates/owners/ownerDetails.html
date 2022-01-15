@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-<html th:replace="~{fragments/layout :: layout (~{::body},'owners')}"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 
 <body>
 
@@ -26,8 +26,7 @@
     </tr>
     <tr>
         <th>Telephone</th>
-        <td th:text="*{telephone}"/>
-        </td>
+        <td th:text="*{telephone}"></td>
     </tr>
 </table>
 
@@ -36,9 +35,9 @@
 <a class="btn btn-default" th:href="@{{id}/pets/new(id=${owner.id})}">Add
     New Pet</a>
 
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />
 <h2>Pets and Visits</h2>
 
 <table class="table table-striped">
@@ -49,11 +48,13 @@
                 <dt>Name</dt>
                 <dd th:text="${pet.name}"></dd>
                 <dt>Birth Date</dt>
-                <dd th:text="${#temporals.format(pet.getBirthDate, 'dd.MM.yyyy')}"></dd>
+                <dd
+                        th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}"></dd>
                 <dt>Type</dt>
                 <dd th:text="${pet.petType}"></dd>
             </dl>
-
+        </td>
+        <td valign="top">
             <table class="table-condensed">
                 <thead>
                 <tr>
