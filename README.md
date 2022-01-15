@@ -18,6 +18,18 @@ It is copy of [spring-petclinic](https://github.com/spring-projects/spring-petcl
 rewritten for educational issues, helping with understanding basic principles and syntax of Spring, JPA, MVC pattern,
 Maven plugins, Caching, Validation, Tests, HTML and CSS
 
+## Running Application Process on your computer
+
+1. Download the application by clicking [here](https://github.com/dm4nk/pet-clinic/archive/master.zip)
+2. Unzip the application
+3. Dowload and Install [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+4. Set the environment variable `JAVA_HOME` to the root of your Java 11 jdk
+5. Download and Install [Maven](https://maven.apache.org/download.cgi)
+6. Open a terminal
+7. Move to the root of the application
+8. Run `mvn spring-boot:run`
+9. Navigate to http://localhost:8080 with your browser
+
 ### Index
 
 ![Pet Clinic Index](https://user-images.githubusercontent.com/80630476/149615604-642abfe1-a10f-48bf-8d41-3bc097e315eb.png)
