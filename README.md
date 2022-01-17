@@ -1,5 +1,4 @@
 [![CircleCI](https://circleci.com/gh/dm4nk/pet-clinic/tree/master.svg?style=svg&circle-token=786fd38fd00c2d100bf2203ea074a897e365dbe4)](https://circleci.com/gh/dm4nk/pet-clinic/tree/master)
-
 # pet-clinic
 
 This application was built using
@@ -9,7 +8,7 @@ This application was built using
 [Hibernate ORM](https://hibernate.org/),
 [H2 Database](https://www.h2database.com/html/main.html)
 with [Thymeleaf](https://www.thymeleaf.org/)
-for rendering the UI.
+for rendering the UI
 
 It represents Pet clinic, providing users with CRUD operations with 
 [Owners](https://github.com/dm4nk/pet-clinic/blob/master/pet-clinic-data/src/main/java/com/dm4nk/petclinic/model/Owner.java), their 
@@ -33,7 +32,7 @@ Maven plugins, Caching, Validation, Tests, HTML and CSS
 8. Run `mvn spring-boot:run`
 9. Navigate to http://localhost:8080 with your browser
 
-### Index
+### Index page
 
 ![Index](https://user-images.githubusercontent.com/80630476/149615604-642abfe1-a10f-48bf-8d41-3bc097e315eb.png)
 
